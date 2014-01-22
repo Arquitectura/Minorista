@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewLocalizacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewLocalizacionLabel_id}"/>
+                    <h:outputText value="#{localizacionController.selected.id}" title="#{bundle.ViewLocalizacionTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewLocalizacionLabel_descripcion}"/>
+                    <h:outputText value="#{localizacionController.selected.descripcion}" title="#{bundle.ViewLocalizacionTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewLocalizacionLabel_tipo}"/>
+                    <h:outputText value="#{localizacionController.selected.tipo}" title="#{bundle.ViewLocalizacionTitle_tipo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{localizacionController.destroyAndView}" value="#{bundle.ViewLocalizacionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewLocalizacionEditLink}"/>
+                <br />
+                <h:commandLink action="#{localizacionController.prepareCreate}" value="#{bundle.ViewLocalizacionCreateLink}" />
+                <br />
+                <h:commandLink action="#{localizacionController.prepareList}" value="#{bundle.ViewLocalizacionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewLocalizacionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateActorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateActorLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{actorController.selected.id}" title="#{bundle.CreateActorTitle_id}" required="true" requiredMessage="#{bundle.CreateActorRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateActorLabel_descu}" for="descu" />
+                    <h:inputText id="descu" value="#{actorController.selected.descu}" title="#{bundle.CreateActorTitle_descu}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_dir}" for="dir" />
+                    <h:inputText id="dir" value="#{actorController.selected.dir}" title="#{bundle.CreateActorTitle_dir}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_dv}" for="dv" />
+                    <h:inputText id="dv" value="#{actorController.selected.dv}" title="#{bundle.CreateActorTitle_dv}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_idext}" for="idext" />
+                    <h:inputText id="idext" value="#{actorController.selected.idext}" title="#{bundle.CreateActorTitle_idext}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_nit}" for="nit" />
+                    <h:inputText id="nit" value="#{actorController.selected.nit}" title="#{bundle.CreateActorTitle_nit}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{actorController.selected.nombre}" title="#{bundle.CreateActorTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_persNat}" for="persNat" />
+                    <h:inputText id="persNat" value="#{actorController.selected.persNat}" title="#{bundle.CreateActorTitle_persNat}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_tel1}" for="tel1" />
+                    <h:inputText id="tel1" value="#{actorController.selected.tel1}" title="#{bundle.CreateActorTitle_tel1}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_tel2}" for="tel2" />
+                    <h:inputText id="tel2" value="#{actorController.selected.tel2}" title="#{bundle.CreateActorTitle_tel2}" />
+                    <h:outputLabel value="#{bundle.CreateActorLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{actorController.selected.type}" title="#{bundle.CreateActorTitle_type}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{actorController.create}" value="#{bundle.CreateActorSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{actorController.prepareList}" value="#{bundle.CreateActorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateActorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

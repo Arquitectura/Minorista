@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://192.168.1.102:8080/EstadoEnvio/EstadoEnvio?WSDL" uri="src/conf/xml-resources/web-service-references/EstadoEnvio/wsdl/192.168.1.102_8080/EstadoEnvio/EstadoEnvio.wsdl"/>
+    <system systemId="http://192.168.1.102:8080/EstadoEnvio/EstadoEnvio?xsd=1" uri="src/conf/xml-resources/web-service-references/EstadoEnvio/wsdl/192.168.1.102_8080/EstadoEnvio/EstadoEnvio.xsd_1.xsd"/>
+    <system systemId="http://192.168.1.102:8080/SolicitudEnvio/SolicitudEnvio?WSDL" uri="src/conf/xml-resources/web-service-references/SolicitudEnvio/wsdl/192.168.1.102_8080/SolicitudEnvio/SolicitudEnvio.wsdl"/>
+    <system systemId="http://192.168.1.102:8080/SolicitudEnvio/SolicitudEnvio?xsd=1" uri="src/conf/xml-resources/web-service-references/SolicitudEnvio/wsdl/192.168.1.102_8080/SolicitudEnvio/SolicitudEnvio.xsd_1.xsd"/>
+</catalog>

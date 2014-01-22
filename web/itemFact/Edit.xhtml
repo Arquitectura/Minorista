@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditItemFactTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{itemFactController.selected.id}" title="#{bundle.EditItemFactTitle_id}" required="true" requiredMessage="#{bundle.EditItemFactRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{itemFactController.selected.cantidad}" title="#{bundle.EditItemFactTitle_cantidad}" />
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_descuento}" for="descuento" />
+                    <h:inputText id="descuento" value="#{itemFactController.selected.descuento}" title="#{bundle.EditItemFactTitle_descuento}" />
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{itemFactController.selected.iva}" title="#{bundle.EditItemFactTitle_iva}" />
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_preciounit}" for="preciounit" />
+                    <h:inputText id="preciounit" value="#{itemFactController.selected.preciounit}" title="#{bundle.EditItemFactTitle_preciounit}" />
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_subtotal}" for="subtotal" />
+                    <h:inputText id="subtotal" value="#{itemFactController.selected.subtotal}" title="#{bundle.EditItemFactTitle_subtotal}" />
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{itemFactController.selected.total}" title="#{bundle.EditItemFactTitle_total}" />
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_unidad}" for="unidad" />
+                    <h:inputText id="unidad" value="#{itemFactController.selected.unidad}" title="#{bundle.EditItemFactTitle_unidad}" />
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_productoId}" for="productoId" />
+                    <h:selectOneMenu id="productoId" value="#{itemFactController.selected.productoId}" title="#{bundle.EditItemFactTitle_productoId}" >
+                        <f:selectItems value="#{productoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditItemFactLabel_facturaId}" for="facturaId" />
+                    <h:selectOneMenu id="facturaId" value="#{itemFactController.selected.facturaId}" title="#{bundle.EditItemFactTitle_facturaId}" >
+                        <f:selectItems value="#{facturaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{itemFactController.update}" value="#{bundle.EditItemFactSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditItemFactViewLink}"/>
+                <br />
+                <h:commandLink action="#{itemFactController.prepareList}" value="#{bundle.EditItemFactShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditItemFactIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOfertaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{ofertaController.selected.id}" title="#{bundle.CreateOfertaTitle_id}" required="true" requiredMessage="#{bundle.CreateOfertaRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_acept}" for="acept" />
+                    <h:inputText id="acept" value="#{ofertaController.selected.acept}" title="#{bundle.CreateOfertaTitle_acept}" />
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_entreg}" for="entreg" />
+                    <h:inputText id="entreg" value="#{ofertaController.selected.entreg}" title="#{bundle.CreateOfertaTitle_entreg}" />
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_fdentr}" for="fdentr" />
+                    <h:inputText id="fdentr" value="#{ofertaController.selected.fdentr}" title="#{bundle.CreateOfertaTitle_fdentr}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{ofertaController.selected.fecha}" title="#{bundle.CreateOfertaTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_formaPago}" for="formaPago" />
+                    <h:inputText id="formaPago" value="#{ofertaController.selected.formaPago}" title="#{bundle.CreateOfertaTitle_formaPago}" />
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_observ}" for="observ" />
+                    <h:inputText id="observ" value="#{ofertaController.selected.observ}" title="#{bundle.CreateOfertaTitle_observ}" />
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_titulo}" for="titulo" />
+                    <h:inputText id="titulo" value="#{ofertaController.selected.titulo}" title="#{bundle.CreateOfertaTitle_titulo}" />
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_validez}" for="validez" />
+                    <h:inputText id="validez" value="#{ofertaController.selected.validez}" title="#{bundle.CreateOfertaTitle_validez}" />
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_solicitudId}" for="solicitudId" />
+                    <h:selectOneMenu id="solicitudId" value="#{ofertaController.selected.solicitudId}" title="#{bundle.CreateOfertaTitle_solicitudId}" >
+                        <f:selectItems value="#{solicitudController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_actorId}" for="actorId" />
+                    <h:selectOneMenu id="actorId" value="#{ofertaController.selected.actorId}" title="#{bundle.CreateOfertaTitle_actorId}" >
+                        <f:selectItems value="#{actorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ofertaController.create}" value="#{bundle.CreateOfertaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ofertaController.prepareList}" value="#{bundle.CreateOfertaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateOfertaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
